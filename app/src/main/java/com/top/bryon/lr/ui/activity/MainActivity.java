@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.top.bryon.lr.R;
+import com.top.bryon.sweatalertdialog.widget.SweetAlertDialog;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        new SweetAlertDialog(this).show();
     }
 
     @Override
