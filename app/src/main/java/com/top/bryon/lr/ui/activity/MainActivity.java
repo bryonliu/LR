@@ -1,14 +1,13 @@
 package com.top.bryon.lr.ui.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.top.bryon.lr.R;
 import com.top.bryon.sweatalertdialog.widget.SweetAlertDialog;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
