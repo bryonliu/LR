@@ -1,5 +1,7 @@
 package com.top.bryon.lr.manager;
 
+import android.webkit.WebView;
+
 import com.top.bryon.lr.utils.HandlerUtils;
 
 /**
@@ -8,5 +10,8 @@ import com.top.bryon.lr.utils.HandlerUtils;
 public class BaseManager {
     public void runOnUI(Runnable runnable) {
         HandlerUtils.getMainHandler().post(runnable);
+        WebView webView = null;
     }
+
+
 }

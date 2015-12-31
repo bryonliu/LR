@@ -14,4 +14,10 @@ public class BaseActivity  extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         AppManager.add(this);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        AppManager.remove(this);
+    }
 }
