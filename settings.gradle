@@ -1,1 +1,1 @@
-include ':app', ':sweatalertdialog'
+include ':app'
