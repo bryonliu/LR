@@ -3,4 +3,13 @@
     <string name="favrite">收藏</string>
     <string name="action_settings">设置</string>
     <string name="action_quit">退出</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="myslogan">多读书多看报</string>
+    <string name="homepage">首页</string>
+    <string name="bookshelf">书架</string>
+    <string name="share">分享</string>
+    <string name="setting">设置</string>
 </resources>
