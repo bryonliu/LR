@@ -6,5 +6,6 @@
     <color name="white">#FFFFFF</color>
     <color name="blue_light">#33B5E5</color>
     <color name="black">#000000</color>
+    <color name="white_alpha">#FFFFFFFF</color>
 </resources>
 

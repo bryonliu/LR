@@ -3,7 +3,7 @@
     <string name="favrite">收藏</string>
     <string name="action_settings">设置</string>
     <string name="action_quit">退出</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">@string/app_name</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
