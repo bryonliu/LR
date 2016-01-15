@@ -4,6 +4,11 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
+    repositories{
+        flatDir{
+            dirs "libs"
+        }
+    }
     defaultConfig {
         applicationId "com.top.bryon.lr"
         minSdkVersion 21
@@ -24,4 +29,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:support-v4:23.1.0'
     compile 'com.android.support:design:23.1.1'
+    compile files('libs/core-3.2.1.jar')
+    compile(name:'zxing-android-embedded-3.0.2', ext:'aar')
 }
