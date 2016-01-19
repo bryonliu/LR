@@ -9,11 +9,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -59,12 +57,8 @@ public class MainActivity extends AppCompatActivity
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
             if (result.getContents() == null) {
-                Log.d("MainActivity", "Cancelled scan");
-                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
             } else {
-                Log.d("MainActivity", "Scanned ："+result.getContents());
-                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
-                BookScanActivity.jumpFromMainActivity(this,result.getContents());
+                BookScanActivity.jumpFromMainActivity(this, result.getContents());
             }
         } else {
             // This is important, otherwise the result will not be passed to the fragment
@@ -115,7 +109,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_bookshelf) {
 
         } else if (id == R.id.nav_share) {
-
+            go2scan();
         } else if (id == R.id.nav_setting) {
 
         } else if (id == R.id.nav_send) {

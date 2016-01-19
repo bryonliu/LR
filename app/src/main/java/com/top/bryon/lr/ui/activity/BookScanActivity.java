@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.top.bryon.lr.R;
 import com.top.bryon.lr.entity.Book;
+import com.top.bryon.lr.ui.widget.ExpandableTextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -52,7 +53,7 @@ public class BookScanActivity extends BaseActivity {
     @Bind(R.id.tv_autor_name)
     TextView mTvBookAuthor;
     @Bind(R.id.tv_book_des)
-    TextView mTvBookSummary;
+    ExpandableTextView mTvBookSummary;
     @Bind(R.id.tv_book_title)
     TextView mTvBookTitle;
 
@@ -70,6 +71,7 @@ public class BookScanActivity extends BaseActivity {
     private void initData() {
         Intent intent = getIntent();
         if (intent == null) {
+            finish();
             return;
         }
         isbn = intent.getStringExtra(ISBN);
@@ -82,11 +84,9 @@ public class BookScanActivity extends BaseActivity {
                 try {
                     OkHttpClient httpClient = new OkHttpClient();
                     Request request = new Request.Builder().get().url(DOU_BAN_URL_GET_BOOKINFO_BY_ISBN + s).build();
-                    Log.d(TAG, "call: " + DOU_BAN_URL_GET_BOOKINFO_BY_ISBN + s);
                     Response response = null;
                     response = httpClient.newCall(request).execute();
                     String body = response.body().string();
-                    Log.d(TAG, "initData: " + body);
                     book = translateJsonString2BookObject(body);
                 } catch (Exception e) {
                     Log.e(TAG, "call: ", e);

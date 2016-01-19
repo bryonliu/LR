@@ -13,7 +13,6 @@
     <string name="share">分享</string>
     <string name="setting">设置</string>
     <string name="content_description">内容简介</string>
-    <string name="book_description">循着岁月流逝、地点变迁，唯有四分之一个世纪里日日坚持跑步的所见所闻、所惑所思最是真真切切：1982年秋，开始职业作家生涯之际，也开始长跑。此后近30年，从夏威夷的考爱岛到马萨诸塞的剑桥，从日本村上市参加铁人三项赛，到踏上希腊马拉松长跑古道，他，永远奔跑。
-文字是“村上”的符号，跑步何尝不是？
-不再是浮华迷茫，不再是旖旎感伤，不再羚羊挂角无迹可寻——写了几十年“别人”的文字之后，作家第一次只写自己：小说之外、文字之外，均是不施雕琢娓娓道来，清淡如云，宁静如水……</string>
+    <string name="expand_open">展开</string>
+    <string name="expand_close">收起</string>
 </resources>

@@ -7,4 +7,5 @@
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="delete_icon">30dp</dimen>
+    <dimen name="notice_text_expand_btn_size">6dp</dimen>
 </resources>

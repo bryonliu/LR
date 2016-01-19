@@ -9,5 +9,6 @@
     <color name="white_alpha">#FFFFFFFF</color>
     <color name="grayBookDes">#888888</color>
     <color name="darkRed">#ffcc0000</color>
+    <color name="notice_text_expand_color">#0000ff</color>
 </resources>
 
