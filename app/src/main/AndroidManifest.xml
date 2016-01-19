@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.top.bryon.lr">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".app.LrApplication"
         android:allowBackup="true"
@@ -26,9 +26,9 @@
             android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
         <activity android:name=".ui.activity.BookScanActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
-        </activity>
     </application>
 
 </manifest>

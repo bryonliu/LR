@@ -35,4 +35,7 @@ dependencies {
     compile(name: 'rxandroid-1.1.0', ext: 'aar')
     compile files('libs/butterknife-7.0.1.jar')
     compile files('libs/okhttp-3.0.1.jar')
+    compile files('libs/okio-1.6.0.jar')
+
+    compile 'com.facebook.fresco:fresco:0.8.1'
 }

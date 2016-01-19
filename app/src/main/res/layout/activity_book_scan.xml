@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/zxing_result_view">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/iv_giveup"
@@ -34,25 +35,23 @@
             android:layout_margin="10dp"
             android:src="@drawable/ic_done_24dp" />
 
-        <ImageView
-            android:id="@+id/iv_book_icon"
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/iv_book_cover"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
-            android:src="@drawable/ic_launcher" />
+            android:layout_marginTop="40dp" />
 
         <TextView
-            android:id="@+id/tv_book_name"
+            android:id="@+id/tv_book_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/iv_book_icon"
+            android:layout_below="@id/iv_book_cover"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:maxLines="1"
             android:padding="10dp"
-            android:text="当我跑步的时候，我谈些什么"
             android:textColor="@color/white_alpha"
             android:textSize="16sp" />
 
@@ -60,12 +59,11 @@
             android:id="@+id/tv_autor_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_book_name"
+            android:layout_below="@id/tv_book_title"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
             android:maxLines="1"
             android:padding="10dp"
-            android:text="树上春树"
             android:textColor="@color/white_alpha"
             android:textSize="14sp" />
     </RelativeLayout>
@@ -89,7 +87,6 @@
             android:layout_below="@id/tv_content_des"
             android:layout_width="match_parent"
             android:textSize="16sp"
-            android:text="@string/book_description"
             android:layout_height="wrap_content" />
     </RelativeLayout>
 </RelativeLayout>
