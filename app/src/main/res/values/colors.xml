@@ -10,5 +10,9 @@
     <color name="grayBookDes">#888888</color>
     <color name="darkRed">#ffcc0000</color>
     <color name="notice_text_expand_color">#0000ff</color>
+    <color name="gray">#F7F7F7</color>
+    <color name="green">#33AF54</color>
+    <color name="gray_deep">#2B2B2B</color>
+    <color name="blue_deep">#285868</color>
 </resources>
 

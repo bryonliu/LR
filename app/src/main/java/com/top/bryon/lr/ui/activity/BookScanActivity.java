@@ -57,6 +57,11 @@ public class BookScanActivity extends BaseActivity {
     @Bind(R.id.tv_book_title)
     TextView mTvBookTitle;
 
+    @Bind(R.id.tag1)
+    TextView mBookTagFirst;
+    @Bind(R.id.tag2)
+    TextView mBookTagSecond;
+
     @Bind(R.id.rl_title)
     View mBookContainView;
 
@@ -79,7 +84,6 @@ public class BookScanActivity extends BaseActivity {
         Observable.just(isbn).map(new Func1<String, Book>() {
             @Override
             public Book call(String s) {
-
                 Book book;
                 try {
                     OkHttpClient httpClient = new OkHttpClient();
@@ -87,6 +91,7 @@ public class BookScanActivity extends BaseActivity {
                     Response response = null;
                     response = httpClient.newCall(request).execute();
                     String body = response.body().string();
+                    Log.d(TAG, "call: " + body);
                     book = translateJsonString2BookObject(body);
                 } catch (Exception e) {
                     Log.e(TAG, "call: ", e);
@@ -122,7 +127,7 @@ public class BookScanActivity extends BaseActivity {
             Bitmap myBitmap = BitmapFactory.decodeStream(input);
             return myBitmap;
         } catch (IOException e) {
-            // Log exception
+            Log.e(TAG, "getBitmapFromURL: ", e);
             return null;
         }
     }
@@ -131,6 +136,12 @@ public class BookScanActivity extends BaseActivity {
         mTvBookAuthor.setText(book.author);
         mTvBookSummary.setText(book.summary);
         mTvBookTitle.setText(book.title);
+        if (book.tags != null && book.tags.length > 0) {
+            mBookTagFirst.setText(book.tags[0]);
+        }
+        if (book.tags != null && book.tags.length > 1) {
+            mBookTagSecond.setText(book.tags[1]);
+        }
 
         Observable.just(book.images[0]).map(new Func1<String, Bitmap>() {
             @Override
@@ -147,6 +158,7 @@ public class BookScanActivity extends BaseActivity {
                         Palette.Swatch darkVibrant = palette.getDarkVibrantSwatch();
                         mIvBookImage.setImageBitmap(bitmap);
                         mBookContainView.setBackground(new ColorDrawable(darkVibrant != null ? darkVibrant.getRgb() : getResources().getColor(R.color.darkRed)));
+                        mTvBookSummary.setTextExpendColor(darkVibrant != null ? darkVibrant.getRgb() : getResources().getColor(R.color.darkRed));
                     }
                 });
             }
