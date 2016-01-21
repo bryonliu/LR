@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_giveup"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_close_24dp" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:text="书架"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <GridView
+        android:id="@+id/gv_book_shelf"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:layout_weight="1"
+        android:scrollbars="none"
+        android:numColumns="3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+    </GridView>
+</LinearLayout>

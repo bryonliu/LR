@@ -4,18 +4,20 @@ package com.top.bryon.lr.orm.database.helper;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 
+import com.top.bryon.lr.orm.database.table.BookTable;
+
 
 /**
  */
 public class MainDbHelper extends SqliteHelper {
 
 
-    private static final int DB_VERSION = 1;
-    private static final String DB_NAME = "main_ny.db";
+    private static final int DB_VERSION = 2;
+    private static final String DB_NAME = "top.bryon.lr";
 
     /** 后续有表的增加或减少，这里进行维护 */
     private static final Class<?>[] TABLESS ={
-            //TestTable.class
+            BookTable.class
     };
     private volatile static SqliteHelper instance;
 

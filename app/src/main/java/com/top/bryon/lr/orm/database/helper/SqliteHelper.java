@@ -135,8 +135,6 @@ public abstract class SqliteHelper extends SQLiteOpenHelper {
 
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        //Log.d("com.qq.connect", "onDowngrade sqliteHelper");
-
         deleteTable(db);
         createTable(db);
     }

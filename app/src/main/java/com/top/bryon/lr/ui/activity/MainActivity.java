@@ -16,6 +16,7 @@ import android.view.View;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.top.bryon.lr.R;
+import com.top.bryon.lr.ui.adapter.BookShelfAdapter;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_homepage) {
             // Handle the camera action
         } else if (id == R.id.nav_bookshelf) {
-
+            BookShelfActivity.start(this);
         } else if (id == R.id.nav_share) {
             go2scan();
         } else if (id == R.id.nav_setting) {

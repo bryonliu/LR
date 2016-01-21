@@ -10,10 +10,12 @@ import android.support.v7.graphics.Palette;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.top.bryon.lr.R;
 import com.top.bryon.lr.entity.Book;
+import com.top.bryon.lr.orm.database.dao.BookDao;
 import com.top.bryon.lr.ui.widget.ExpandableTextView;
 
 import org.json.JSONArray;
@@ -64,12 +66,12 @@ public class BookScanActivity extends BaseActivity {
 
     @Bind(R.id.rl_title)
     View mBookContainView;
+    private Book book = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_scan);
-        ButterKnife.bind(this);
         initData();
     }
 
@@ -84,7 +86,7 @@ public class BookScanActivity extends BaseActivity {
         Observable.just(isbn).map(new Func1<String, Book>() {
             @Override
             public Book call(String s) {
-                Book book;
+
                 try {
                     OkHttpClient httpClient = new OkHttpClient();
                     Request request = new Request.Builder().get().url(DOU_BAN_URL_GET_BOOKINFO_BY_ISBN + s).build();
@@ -180,8 +182,8 @@ public class BookScanActivity extends BaseActivity {
 
     private String[] getImgs(JSONObject images) throws JSONException {
         String[] imgs = new String[images.length()];
-        imgs[0] = images.getString("small");
-        imgs[1] = images.getString("large");
+        imgs[1] = images.getString("small");
+        imgs[0] = images.getString("large");
         imgs[2] = images.getString("medium");
         return imgs;
     }
@@ -210,6 +212,19 @@ public class BookScanActivity extends BaseActivity {
                 break;
             case R.id.iv_done:
                 //TODO share the book
+
+                Observable.just(book).map(new Func1<Book, Integer>() {
+                    @Override
+                    public Integer call(Book book) {
+                        book.isbn = isbn;
+                        return BookDao.instance().insert(book);
+                    }
+                }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Integer>() {
+                    @Override
+                    public void call(Integer integer) {
+                        Toast.makeText(BookScanActivity.this, integer + "", Toast.LENGTH_SHORT).show();
+                    }
+                });
                 break;
             default:
                 break;
