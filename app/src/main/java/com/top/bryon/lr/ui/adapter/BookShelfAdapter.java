@@ -70,7 +70,7 @@ public class BookShelfAdapter extends BaseAdapter {
         }
         if (position == bookList.size()) {
 
-            holder.mTvBookTitle.setVisibility(View.INVISIBLE);
+            holder.mTvBookTitle.setVisibility(View.GONE);
             holder.mIvBookCover.setImageResource(R.drawable.ic_add_48dp);
             return convertView;
         }

@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.top.bryon.lr.R;
 import com.top.bryon.lr.entity.Book;
 import com.top.bryon.lr.orm.database.dao.BookDao;
@@ -35,6 +38,8 @@ public class BookShelfActivity extends BaseActivity {
 
     private BookShelfAdapter shelfAdapter;
 
+    private List<Book> bookList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +52,29 @@ public class BookShelfActivity extends BaseActivity {
     private void initView() {
         shelfAdapter = new BookShelfAdapter(this);
         mGvBookShelf.setAdapter(shelfAdapter);
+
+        mGvBookShelf.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (bookList != null && position == bookList.size()) {
+                    CaptureActivityPortrait.start(BookShelfActivity.this);
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() == null) {
+            } else {
+                BookScanActivity.jumpFromMainActivity(this, result.getContents());
+            }
+        } else {
+            // This is important, otherwise the result will not be passed to the fragment
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     private void fillData() {
@@ -60,6 +88,7 @@ public class BookShelfActivity extends BaseActivity {
                 .subscribe(new Action1<List<Book>>() {
                     @Override
                     public void call(List<Book> books) {
+                        bookList = books;
                         shelfAdapter.update(books);
                     }
                 });
