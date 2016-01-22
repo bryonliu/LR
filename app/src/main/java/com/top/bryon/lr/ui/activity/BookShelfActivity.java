@@ -61,6 +61,13 @@ public class BookShelfActivity extends BaseActivity {
                 }
             }
         });
+        mGvBookShelf.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                //TODO  处理除了最后一项之外的其他项的长按，进入编辑状态
+                return false;
+            }
+        });
     }
 
     @Override
